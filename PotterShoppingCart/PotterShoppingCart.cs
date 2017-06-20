@@ -10,8 +10,8 @@ namespace PotterShoppingCart
         public static int CalculateTotalPrice(Dictionary<string,int> books)
         {
             int totalPrice = 0;
-            int groupAmount = books.Count;
-            while (groupAmount > 1)
+            int groupAmount = 0;
+            while (books.Count > 1)
             {
                 totalPrice += CalculateGroupPrice(books, ref groupAmount);
                 books = books.ToDictionary(x => x.Key, x => x.Value - groupAmount)
